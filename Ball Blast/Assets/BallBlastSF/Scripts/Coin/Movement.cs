@@ -3,11 +3,12 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _horizontalSpeed; //Горизонтальная скорость.
+
     [SerializeField] private float _reboundSpeed; //Скорость отскока.
+
     [SerializeField] private float _gravity; //Гравитация.
 
     private Vector3 _velosity; //Вектор направления движения.
-
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class Movement : MonoBehaviour
         if (_reboundSpeed <= 0.5f)
         {
             enabled = false;
+
             return;
         }
 
@@ -46,7 +48,9 @@ public class Movement : MonoBehaviour
             if (levelEdge.Type == EdgeType.Bottom)
             {
                 _velosity.y = _reboundSpeed;
+
                 _reboundSpeed /= 1.5f;
+
                 _velosity.x /= 2;
             }
 

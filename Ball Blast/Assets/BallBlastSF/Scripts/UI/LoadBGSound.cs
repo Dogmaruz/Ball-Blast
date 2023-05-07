@@ -9,6 +9,7 @@ public class LoadBGSound : MonoBehaviour
         if (FindObjectOfType<LoadBGSound>()._backgroundSound.isPlaying) return;
         
         _backgroundSound.Play();
+
         DontDestroyOnLoad(_backgroundSound);
     }
 }

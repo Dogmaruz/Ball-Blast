@@ -4,9 +4,11 @@ using UnityEngine.Events;
 public class Destructible : MonoBehaviour
 {
     [HideInInspector] public UnityEvent OnDestroyEvent;
+
     [HideInInspector] public UnityEvent OnDamageEvent;
 
     public int MaxHeath; //Максимальное колличество жизней.
+
     private int _health; //Жизнь.
 
     private bool _isDestroyed = false; //Флаг уничтожения.
@@ -14,6 +16,7 @@ public class Destructible : MonoBehaviour
     private void Start()
     {
         _health = MaxHeath;
+
         OnDamageEvent.Invoke();
     }
 
@@ -34,7 +37,9 @@ public class Destructible : MonoBehaviour
     public void AddHealth()
     {
         _health += 10;
+
         if (_health >= MaxHeath) _health = 100;
+
         OnDamageEvent?.Invoke();
     }
 
@@ -44,6 +49,7 @@ public class Destructible : MonoBehaviour
         if (_isDestroyed) return;
 
         _health = 0;
+
         _isDestroyed = true;
 
         OnDestroyEvent?.Invoke();

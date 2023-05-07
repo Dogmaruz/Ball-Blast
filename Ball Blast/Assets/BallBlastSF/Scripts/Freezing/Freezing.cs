@@ -9,6 +9,7 @@ public class Freezing : MonoBehaviour
         if (turret)
         {
             var stones = FindObjectsOfType<Stone>();
+
             foreach (var item in stones)
             {
                 item.FreezingStone();

@@ -3,9 +3,13 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenuPanel; //—сылка на главное UI меню.
+
     [SerializeField] private SceneHelper _sceneHelper;
+
     [SerializeField] private LossMenu _lossMenu; //—сылка на UI меню проигрыша.
+
     [SerializeField] private GameObject _lossMenuPanel; //—сылка на UI меню проигрыша.
+
     [SerializeField] private GameObject _progressPanel; //—сылка на панель прогресса.
 
     public static bool IsActiv = true;
@@ -16,6 +20,7 @@ public class MainMenu : MonoBehaviour
         if (IsActiv)
         {
             _mainMenuPanel.SetActive(true);
+
             _progressPanel.SetActive(false);
 
             Time.timeScale = 0f;
@@ -23,6 +28,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             _mainMenuPanel.SetActive(false);
+
             _progressPanel.SetActive(true);
         }
 
@@ -32,6 +38,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         _mainMenuPanel.SetActive(false);
+
         _progressPanel.SetActive(true);
 
         if (_lossMenu.IsActive)
@@ -54,6 +61,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
         _mainMenuPanel.SetActive(false);
+
         _progressPanel.SetActive(true);
 
         Time.timeScale = 1f;

@@ -5,22 +5,29 @@ using UnityEngine.Events;
 public class StoneMovement : MonoBehaviour
 {
     [SerializeField] private float _horizontalSpeed; //Горизонтальная скорость.
+
     [SerializeField] private float _reboundSpeed; //Скорость отскока.
+
     [SerializeField] private float _gravity; //Гравитация.
+
     [SerializeField] private float _gravityOffset; //Величина смещения от границы экрана для включения гравитации.
+
     [SerializeField] private float _rotationSpeed; //Скорость вращения.
+
     [SerializeField] private UnityEvent _stoneBottomEdgeEvent; //Событие удара об землю.
 
     private bool _useGravity; //Флаг гравитации.
-    private Vector3 _velosity; //Вектор направления движения камня.
-    private bool _isFreezing; //Флаг заморозки.
 
+    private Vector3 _velosity; //Вектор направления движения камня.
+
+    private bool _isFreezing; //Флаг заморозки.
     public bool IsFreezing { get => _isFreezing; set => _isFreezing = value; } //Флаг заморозки.
 
     private void Awake()
     {
         //Задает направление движения при создании объекта камня.
         _velosity.x = -Mathf.Sign(transform.position.x) * _horizontalSpeed;
+
         _isFreezing = true; ;
     }
 
@@ -29,6 +36,7 @@ public class StoneMovement : MonoBehaviour
         if (!_isFreezing) return; //При заморозке движение камня не происходит.
 
         TryEnableGravity();
+
         Move();
     }
 
@@ -50,6 +58,7 @@ public class StoneMovement : MonoBehaviour
         }
 
         transform.Rotate(0, 0, _rotationSpeed * -Mathf.Sign(_velosity.x) * Time.deltaTime);
+
         _velosity.x = Mathf.Sign(_velosity.x) * _horizontalSpeed;
 
         transform.position += _velosity * Time.deltaTime;

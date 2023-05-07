@@ -12,15 +12,18 @@ public class LevelBoundary : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
+
             return;
         }
 
         Instance = this;
+
         DontDestroyOnLoad(gameObject);
 
         if (!Application.isEditor && Application.isPlaying)
         {
             _screenResolution.x = Screen.width;
+
             _screenResolution.y = Screen.height;
         }
     }
@@ -48,7 +51,9 @@ public class LevelBoundary : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
+
         Gizmos.DrawLine(new Vector3(LeftBorder, -10, 0), new Vector3(LeftBorder, 10, 0));
+
         Gizmos.DrawLine(new Vector3(RightBorder, -10, 0), new Vector3(RightBorder, 10, 0));
     }
 

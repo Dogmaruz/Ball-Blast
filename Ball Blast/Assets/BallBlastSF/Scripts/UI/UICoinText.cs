@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UICoinText : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
+
     [SerializeField] private Text _text;
 
     private void Start()

@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class SceneHelper : MonoBehaviour
 {
     void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
+
         Cursor.visible = true;
     }
 

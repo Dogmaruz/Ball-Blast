@@ -4,17 +4,24 @@ using UnityEngine.Events;
 public class LevelState : MonoBehaviour
 {
     [SerializeField] private StoneSpawner _spawner;
+
     [SerializeField] private Cart _cart;
+
     [SerializeField] private ParticleSystem _cartParticleSystems; //Ссылка на систему частиц турели.
+
     [SerializeField] private GameObject _storeMenuPanel; //Ссылка на StoreMenu,
 
     [Space(5)]
     public UnityEvent PassedEvent;
+
     public UnityEvent DefeatEvent;
 
     private float _timer;
+
     private float _timerGodMode; //Таймер окнчания режима бога.
+
     private bool _chekPassed; //Флаг окончания спавна камней.
+
     private bool _isGodMode; //Флаг режима бога.
 
     public bool IsGodMode { get => _isGodMode; set => _isGodMode = value; } //Флаг режима бога.
@@ -22,6 +29,7 @@ public class LevelState : MonoBehaviour
     private void Awake()
     {
         _cart.CollisionStoneEvent.AddListener(OnCartCollisionStone);
+
         _spawner.CompletedEvent.AddListener(OnSpawnCompleted);
     }
 
@@ -43,7 +51,9 @@ public class LevelState : MonoBehaviour
             if (_timerGodMode > 5)
             {
                 _timerGodMode = 0;
+
                 _isGodMode = false;
+
                 _cartParticleSystems.Stop();
             }
         }
@@ -58,7 +68,6 @@ public class LevelState : MonoBehaviour
                     if (!_storeMenuPanel.activeSelf)
                     {
                         PassedEvent.Invoke();
-
                     }
                 }
             }
@@ -70,6 +79,7 @@ public class LevelState : MonoBehaviour
     private void OnDestroy()
     {
         _cart.CollisionStoneEvent.RemoveListener(OnCartCollisionStone);
+
         _spawner.CompletedEvent.RemoveListener(OnSpawnCompleted);
     }
 

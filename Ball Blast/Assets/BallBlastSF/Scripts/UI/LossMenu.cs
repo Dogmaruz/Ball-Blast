@@ -3,9 +3,13 @@ using UnityEngine;
 public class LossMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenu; //—сылка на главное UI меню.
+
     [SerializeField] private GameObject _lossMenu; //—сылка на главное UI меню.
+
     [SerializeField] private StoneSpawner _stoneSpawner;
+
     [SerializeField] private SceneHelper _sceneHelper;
+
     [SerializeField] private GameObject _progressPanel; //—сылка на панель прогресса.
 
     private bool _isActive;
@@ -32,7 +36,9 @@ public class LossMenu : MonoBehaviour
         IsActive = true;
 
         _lossMenu.SetActive(false);
+
         _mainMenu.SetActive(true);
+
         _progressPanel.SetActive(false);
 
         Time.timeScale = 0f;

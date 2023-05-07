@@ -11,6 +11,5 @@ public enum EdgeType
 public class LevelEdge : MonoBehaviour
 {
     [SerializeField] private EdgeType _type;
-
     public EdgeType Type => _type; //Определяет тип границы экрана.
 }

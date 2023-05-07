@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool _pauseGame; //‘лаг активации меню.
     [SerializeField] private GameObject _pauseMenu; //—сылка на UI меню.
+
     [SerializeField] private GameObject _mainMenu; //—сылка на главное UI меню.
+
     [SerializeField] private GameObject _progressPanel; //—сылка на панель прогресса.
+
     [SerializeField] private GameObject _LossMenu; //—сылка на панель проигрыша.
+
     [SerializeField] private GameObject _levelMenu; //—сылка на панель победы.
+
     [SerializeField] private GameObject _storeMenu; //—сылка на панель магазина.
+
+    private bool _pauseGame; //‘лаг активации меню.
 
     //ќбработка нажати€ кнопки ESC.
     void Update()
@@ -52,7 +58,9 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         _pauseMenu.SetActive(false);
+
         _mainMenu.SetActive(true);
+
         _progressPanel.SetActive(false);
 
         Time.timeScale = 0f;

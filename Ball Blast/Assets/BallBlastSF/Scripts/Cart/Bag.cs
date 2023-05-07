@@ -13,6 +13,7 @@ public class Bag : MonoBehaviour
     {
         //Загружает монеты из файла и выводит на экран.
         _amountCoin = PlayerPrefs.GetInt("LevelMenu:AmountCoin", 0);
+
         _textCoinUI.UpdateCoinText();
     }
 
@@ -36,6 +37,7 @@ public class Bag : MonoBehaviour
         if (_amountCoin - amount < 0) return false;
 
         _amountCoin -= amount;
+
         _onPushCoin?.Invoke();
 
         return true;

@@ -3,7 +3,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed; //Скорость снаряда.
+
     [SerializeField] private float _lifeTime; //Время жизни объекта.
+
     private int _damage; //Сила урона.
 
     private void Start()

@@ -5,16 +5,20 @@ public class Cart : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _movementSpeed; //Скорость турели.
+
     [SerializeField] private float _vehicleWidht;
 
     [Header("Wheel")]
     [SerializeField] private Transform[] _wheels; //Ссылка на колеса.
+
     [SerializeField] private float _wheelRadius; //Радиус колеса.
 
     [HideInInspector] public UnityEvent CollisionStoneEvent;
 
     private Vector3 _movementTarget; //Цель движения.
+
     private float _deltaMovement;
+
     private float _lastPositionX; //Предыдущая позиция.
 
     void Start()
@@ -71,16 +75,19 @@ public class Cart : MonoBehaviour
     private Vector3 ClampMovementTarget(Vector3 target)
     {
         float leftBorder = LevelBoundary.Instance.LeftBorder + _vehicleWidht * 0.5f;
+
         float rightBorder = LevelBoundary.Instance.RightBorder - _vehicleWidht * 0.5f;
 
         Vector3 moveTarget = target;
 
         moveTarget.y = transform.position.y;
+
         moveTarget.z = transform.position.z;
 
         if (moveTarget.x < leftBorder) moveTarget.x = leftBorder;
+
         if (moveTarget.x > rightBorder) moveTarget.x = rightBorder;
-        
+
         return moveTarget;
     }
 
@@ -88,6 +95,7 @@ public class Cart : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
+
         Gizmos.DrawLine(transform.position + new Vector3(-_vehicleWidht * 0.5f, -0.55f, 0), transform.position + new Vector3(_vehicleWidht * 0.5f, -0.55f, 0));
     }
 #endif

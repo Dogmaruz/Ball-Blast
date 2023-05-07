@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
         {
             //ѕомещаем монету при столкновении с тулелью.
             bag.PushCoin(1);
+
             Destroy(gameObject);
         }
     }

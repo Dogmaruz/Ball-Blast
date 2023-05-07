@@ -3,6 +3,7 @@ using UnityEngine;
 public class CartInputControl : MonoBehaviour
 {
     [SerializeField] private Cart _cartPrefab; //Префаб турелли.
+
     [SerializeField] private Turret _turret;
     
     void Update()
