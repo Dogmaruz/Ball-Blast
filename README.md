@@ -1,2 +1,3 @@
 # Ball-Blast
-This is my first game Ball Blast in this genre
+
+Моя первая игра Ball Blast в этом жанре.
